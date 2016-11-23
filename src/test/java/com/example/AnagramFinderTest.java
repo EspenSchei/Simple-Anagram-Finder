@@ -23,7 +23,7 @@ public class AnagramFinderTest {
   final String file = "anagrams.txt";
 
   @Test
-  public void findAnagrams() throws Exception {
+  public void shouldFindAnagrams() throws Exception {
     final List<String> words = readWordsFromFile();
 
     final HashMap<String, Set<String>> anagrams = AnagramFinder.findAnagrams(words);
