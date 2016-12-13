@@ -3,9 +3,9 @@ package com.example;
 import static java.util.stream.Collectors.joining;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class AnagramFinder {
@@ -16,11 +16,11 @@ public class AnagramFinder {
     words.forEach(word -> {
       String key = orderString(word);
 
-      if (anagrams.containsKey(key)) {
-        anagrams.get(key).add(word);
-      } else {
-        anagrams.put(key, Stream.of(word).collect(Collectors.toSet()));
+      if (!anagrams.containsKey(key)) {
+        anagrams.put(key, new HashSet<>());
       }
+
+      anagrams.get(key).add(word);
     });
 
     return anagrams;
